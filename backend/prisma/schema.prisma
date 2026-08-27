@@ -6,3 +6,138 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String   @unique
+  phone     String?
+  role      UserRole
+
+  tutorAssignments TutorAssignment[] @relation("TutorAssignments")
+  lessons           Lesson[]          @relation("TutorLessons")
+}
+
+enum UserRole {
+  ADMIN
+  TUTOR
+}
+
+model School {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String?
+  phone   String?
+
+  pupils Pupil[]
+}
+
+model Pupil {
+  id       Int    @id @default(autoincrement())
+  firstName String
+  lastName  String
+  schoolId Int
+
+  school School @relation(fields: [schoolId], references: [id])
+
+  tutorAssignments TutorAssignment[] @relation("PupilAssignments")
+  lessons           Lesson[]          @relation("PupilLessons")
+}
+
+model TutorAssignment {
+  tutorId  Int
+  pupilId  Int
+
+  tutor User  @relation("TutorAssignments", fields: [tutorId], references: [id])
+  pupil Pupil @relation("PupilAssignments", fields: [pupilId], references: [id])
+
+  @@id([tutorId, pupilId])
+}
+
+model Lesson {
+  id        Int      @id @default(autoincrement())
+  pupilId   Int
+  tutorId   Int
+  date      DateTime
+  startTime String
+  duration  Int
+  subject   String
+  venue     String?
+
+  pupil Pupil @relation("PupilLessons", fields: [pupilId], references: [id])
+  tutor User  @relation("TutorLessons", fields: [tutorId], references: [id])
+
+  report Report?
+}
+
+model Report {
+  id       Int @id @default(autoincrement())
+  lessonId Int @unique
+
+  engagementScore       Int
+  attentionScore        Int
+  confidenceScore       Int
+  academicProgressScore Int
+
+  emotionalRegulation            EmotionalRegulation?
+  emotionalRegulationExplanation String?
+
+  lessonObjective String?
+  lessonOutcome   String?
+
+  strategyImpact String?
+
+  nextSessionTarget String?
+  tutorReflection    String?
+
+  lesson Lesson @relation(fields: [lessonId], references: [id])
+
+  reportStrategies ReportStrategy[]
+  reportEvidence   ReportEvidence[]
+}
+
+enum EmotionalRegulation {
+  CALM
+  HAPPY
+  ANXIOUS
+  WITHDRAWN
+  TIRED
+  DYSREGULATED
+  UNCONTROLLED
+  OTHER
+}
+
+model Strategy {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  reportStrategies ReportStrategy[]
+}
+
+model ReportStrategy {
+  reportId   Int
+  strategyId Int
+
+  report   Report   @relation(fields: [reportId], references: [id])
+  strategy Strategy @relation(fields: [strategyId], references: [id])
+
+  @@id([reportId, strategyId])
+}
+
+model EvidenceType {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  reportEvidence ReportEvidence[]
+}
+
+model ReportEvidence {
+  reportId       Int
+  evidenceTypeId Int
+
+  report       Report       @relation(fields: [reportId], references: [id])
+  evidenceType EvidenceType @relation(fields: [evidenceTypeId], references: [id])
+
+  @@id([reportId, evidenceTypeId])
+}
