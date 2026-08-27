@@ -15,8 +15,11 @@ model User {
   phone     String?
   role      UserRole
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   tutorAssignments TutorAssignment[] @relation("TutorAssignments")
-  lessons           Lesson[]          @relation("TutorLessons")
+  lessons          Lesson[]          @relation("TutorLessons")
 }
 
 enum UserRole {
@@ -25,29 +28,37 @@ enum UserRole {
 }
 
 model School {
-  id      Int    @id @default(autoincrement())
-  name    String
-  email   String?
-  phone   String?
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String?
+  phone String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   pupils Pupil[]
 }
 
 model Pupil {
-  id       Int    @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   firstName String
   lastName  String
-  schoolId Int
+  schoolId  Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   school School @relation(fields: [schoolId], references: [id])
 
   tutorAssignments TutorAssignment[] @relation("PupilAssignments")
-  lessons           Lesson[]          @relation("PupilLessons")
+  lessons          Lesson[]          @relation("PupilLessons")
 }
 
 model TutorAssignment {
-  tutorId  Int
-  pupilId  Int
+  tutorId Int
+  pupilId Int
+
+  createdAt DateTime @default(now())
 
   tutor User  @relation("TutorAssignments", fields: [tutorId], references: [id])
   pupil Pupil @relation("PupilAssignments", fields: [pupilId], references: [id])
@@ -59,11 +70,13 @@ model Lesson {
   id        Int      @id @default(autoincrement())
   pupilId   Int
   tutorId   Int
-  date      DateTime
-  startTime String
+  startTime DateTime
   duration  Int
   subject   String
   venue     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   pupil Pupil @relation("PupilLessons", fields: [pupilId], references: [id])
   tutor User  @relation("TutorLessons", fields: [tutorId], references: [id])
@@ -89,7 +102,10 @@ model Report {
   strategyImpact String?
 
   nextSessionTarget String?
-  tutorReflection    String?
+  tutorReflection   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   lesson Lesson @relation(fields: [lessonId], references: [id])
 
@@ -112,6 +128,9 @@ model Strategy {
   id   Int    @id @default(autoincrement())
   name String @unique
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   reportStrategies ReportStrategy[]
 }
 
@@ -128,6 +147,9 @@ model ReportStrategy {
 model EvidenceType {
   id   Int    @id @default(autoincrement())
   name String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   reportEvidence ReportEvidence[]
 }
