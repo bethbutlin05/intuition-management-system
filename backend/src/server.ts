@@ -1,13 +1,30 @@
 import express from 'express'
+import schoolRoutes from './routes/schools.js'
+import pupilRoutes from './routes/pupils.js'
+import userRoutes from './routes/users.js'
+import tutorAssignmentRoutes from './routes/tutorAssignments.js'
+import lessonRoutes from './routes/lessons.js'
+import reportRoutes from './routes/reports.js'
+import strategyRoutes from './routes/strategies.js'
+import evidenceTypeRoutes from './routes/evidenceTypes.js'
 
 const app = express()
 
-const PORT = 3000
-
 app.use(express.json())
 
-app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok' })
+app.use('/api/schools', schoolRoutes)
+app.use('/api/pupils', pupilRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/tutor-assignments', tutorAssignmentRoutes)
+app.use('/api/lessons', lessonRoutes)
+app.use('/api/reports', reportRoutes)
+app.use('/api/strategies', strategyRoutes)
+app.use('/api/evidence-types', evidenceTypeRoutes)
+
+const PORT = 3000
+
+app.get('/', (_req, res) => {
+  res.send('inTuition Management System API is running!')
 })
 
 app.listen(PORT, () => {
