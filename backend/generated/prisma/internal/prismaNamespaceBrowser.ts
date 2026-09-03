@@ -54,7 +54,7 @@ export const ModelName = {
   User: 'User',
   School: 'School',
   Pupil: 'Pupil',
-  TutorAssignment: 'TutorAssignment',
+  LessonSchedule: 'LessonSchedule',
   Lesson: 'Lesson',
   Report: 'Report',
   Strategy: 'Strategy',
@@ -117,25 +117,32 @@ export const PupilScalarFieldEnum = {
 export type PupilScalarFieldEnum = (typeof PupilScalarFieldEnum)[keyof typeof PupilScalarFieldEnum]
 
 
-export const TutorAssignmentScalarFieldEnum = {
+export const LessonScheduleScalarFieldEnum = {
+  id: 'id',
   tutorId: 'tutorId',
   pupilId: 'pupilId',
-  createdAt: 'createdAt'
+  subject: 'subject',
+  dayOfWeek: 'dayOfWeek',
+  startTime: 'startTime',
+  duration: 'duration',
+  venue: 'venue',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
-export type TutorAssignmentScalarFieldEnum = (typeof TutorAssignmentScalarFieldEnum)[keyof typeof TutorAssignmentScalarFieldEnum]
+export type LessonScheduleScalarFieldEnum = (typeof LessonScheduleScalarFieldEnum)[keyof typeof LessonScheduleScalarFieldEnum]
 
 
 export const LessonScalarFieldEnum = {
   id: 'id',
+  scheduleId: 'scheduleId',
   pupilId: 'pupilId',
   tutorId: 'tutorId',
   startTime: 'startTime',
   duration: 'duration',
   subject: 'subject',
-  venue: 'venue',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  venue: 'venue'
 } as const
 
 export type LessonScalarFieldEnum = (typeof LessonScalarFieldEnum)[keyof typeof LessonScalarFieldEnum]
@@ -151,6 +158,7 @@ export const ReportScalarFieldEnum = {
   emotionalRegulation: 'emotionalRegulation',
   emotionalRegulationExplanation: 'emotionalRegulationExplanation',
   lessonObjective: 'lessonObjective',
+  pupilActivity: 'pupilActivity',
   lessonOutcome: 'lessonOutcome',
   strategyImpact: 'strategyImpact',
   nextSessionTarget: 'nextSessionTarget',

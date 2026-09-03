@@ -18,8 +18,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  tutorAssignments TutorAssignment[] @relation("TutorAssignments")
-  lessons          Lesson[]          @relation("TutorLessons")
+  lessonSchedules LessonSchedule[] @relation("TutorLessonSchedules")
+  lessons         Lesson[]         @relation("TutorLessons")
 }
 
 enum UserRole {
@@ -50,36 +50,62 @@ model Pupil {
 
   school School @relation(fields: [schoolId], references: [id])
 
-  tutorAssignments TutorAssignment[] @relation("PupilAssignments")
-  lessons          Lesson[]          @relation("PupilLessons")
+  lessonSchedules LessonSchedule[] @relation("PupilLessonSchedules")
+  lessons         Lesson[]         @relation("PupilLessons")
 }
 
-model TutorAssignment {
+model LessonSchedule {
+  id Int @id @default(autoincrement())
+
   tutorId Int
   pupilId Int
 
+  subject String
+
+  dayOfWeek DayOfWeek
+  startTime String
+  duration Int
+
+  venue String?
+
+  active Boolean @default(true)
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  tutor User  @relation("TutorAssignments", fields: [tutorId], references: [id])
-  pupil Pupil @relation("PupilAssignments", fields: [pupilId], references: [id])
+  tutor User @relation("TutorLessonSchedules", fields: [tutorId], references: [id])
+  pupil Pupil @relation("PupilLessonSchedules", fields: [pupilId], references: [id])
 
-  @@id([tutorId, pupilId])
+  lessons Lesson[]
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
 }
 
 model Lesson {
-  id        Int      @id @default(autoincrement())
-  pupilId   Int
-  tutorId   Int
+  id Int @id @default(autoincrement())
+
+  scheduleId Int?
+
+  pupilId Int
+  tutorId Int
+
   startTime DateTime
   duration  Int
   subject   String
   venue     String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
   pupil Pupil @relation("PupilLessons", fields: [pupilId], references: [id])
   tutor User  @relation("TutorLessons", fields: [tutorId], references: [id])
+
+  schedule LessonSchedule? @relation(fields: [scheduleId], references: [id])
 
   report Report?
 }
@@ -97,7 +123,10 @@ model Report {
   emotionalRegulationExplanation String?
 
   lessonObjective String?
-  lessonOutcome   String?
+
+  pupilActivity String?
+
+  lessonOutcome String?
 
   strategyImpact String?
 

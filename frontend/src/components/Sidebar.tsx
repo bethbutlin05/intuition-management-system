@@ -20,7 +20,19 @@ function Sidebar() {
           </li>
 
           <li>
-            <Link to="/reports">Reports</Link>
+            <Link to="/lesson-schedules">Regular Lessons</Link>
+          </li>
+
+          <li>
+            <Link to="/reports/new">
+              Add Report
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/reports">
+              Reports
+            </Link>
           </li>
 
           <li>

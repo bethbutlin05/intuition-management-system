@@ -3,10 +3,10 @@ import prisma from '../prisma.js'
 
 const router = Router()
 
-// GET all tutor assignments
+// GET all lesson schedules
 router.get('/', async (_req, res) => {
   try {
-    const assignments = await prisma.tutorAssignment.findMany({
+    const lessonSchedules = await prisma.lessonSchedule.findMany({
       include: {
         tutor: true,
         pupil: {
@@ -15,30 +15,50 @@ router.get('/', async (_req, res) => {
           },
         },
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
     })
 
-    res.json(assignments)
+    res.json(lessonSchedules)
   } catch (error) {
     console.error(error)
 
     res.status(500).json({
-      error: 'Failed to fetch tutor assignments',
+      error: 'Failed to fetch lesson schedules',
     })
   }
 })
 
-// POST assign a tutor to a pupil
+// POST create a lesson schedule
 router.post('/', async (req, res) => {
   try {
-    const { tutorId, pupilId } = req.body
+    const {
+      tutorId,
+      pupilId,
+      subject,
+      dayOfWeek,
+      startTime,
+      duration,
+      venue,
+    } = req.body
 
-    if (!tutorId || !pupilId) {
+    // Check required fields
+    if (
+      !tutorId ||
+      !pupilId ||
+      !subject ||
+      !dayOfWeek ||
+      !startTime ||
+      !duration
+    ) {
       return res.status(400).json({
-        error: 'Tutor ID and pupil ID are required',
+        error:
+          'Tutor, pupil, subject, day, start time and duration are required',
       })
     }
 
-    // Check that the tutor exists and is actually a tutor
+    // Check tutor exists
     const tutor = await prisma.user.findUnique({
       where: {
         id: tutorId,
@@ -53,11 +73,11 @@ router.post('/', async (req, res) => {
 
     if (tutor.role !== 'TUTOR') {
       return res.status(400).json({
-        error: 'User must have the TUTOR role to be assigned to a pupil',
+        error: 'Selected user is not a tutor',
       })
     }
 
-    // Check that the pupil exists
+    // Check pupil exists
     const pupil = await prisma.pupil.findUnique({
       where: {
         id: pupilId,
@@ -70,24 +90,33 @@ router.post('/', async (req, res) => {
       })
     }
 
-    // Create the assignment
-    const assignment = await prisma.tutorAssignment.create({
+    // Create the lesson schedule
+    const lessonSchedule = await prisma.lessonSchedule.create({
       data: {
         tutorId,
         pupilId,
+        subject,
+        dayOfWeek,
+        startTime,
+        duration,
+        venue,
       },
       include: {
         tutor: true,
-        pupil: true,
+        pupil: {
+          include: {
+            school: true,
+          },
+        },
       },
     })
 
-    res.status(201).json(assignment)
+    res.status(201).json(lessonSchedule)
   } catch (error) {
     console.error(error)
 
     res.status(500).json({
-      error: 'Failed to create tutor assignment',
+      error: 'Failed to create lesson schedule',
     })
   }
 })

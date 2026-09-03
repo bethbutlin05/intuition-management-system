@@ -81,22 +81,6 @@ router.post('/', async (req, res) => {
       })
     }
 
-    // Check that the tutor is assigned to this pupil
-    const assignment = await prisma.tutorAssignment.findUnique({
-      where: {
-        tutorId_pupilId: {
-        tutorId,
-        pupilId,
-        },
-      },
-    })
-
-    if (!assignment) {
-      return res.status(400).json({
-        error: 'This tutor is not assigned to this pupil',
-      })
-    }
-
     // Create the lesson
     const lesson = await prisma.lesson.create({
       data: {

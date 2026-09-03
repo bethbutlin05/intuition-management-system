@@ -400,7 +400,7 @@ export const ModelName = {
   User: 'User',
   School: 'School',
   Pupil: 'Pupil',
-  TutorAssignment: 'TutorAssignment',
+  LessonSchedule: 'LessonSchedule',
   Lesson: 'Lesson',
   Report: 'Report',
   Strategy: 'Strategy',
@@ -422,7 +422,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "school" | "pupil" | "tutorAssignment" | "lesson" | "report" | "strategy" | "reportStrategy" | "evidenceType" | "reportEvidence"
+    modelProps: "user" | "school" | "pupil" | "lessonSchedule" | "lesson" | "report" | "strategy" | "reportStrategy" | "evidenceType" | "reportEvidence"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -648,77 +648,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    TutorAssignment: {
-      payload: Prisma.$TutorAssignmentPayload<ExtArgs>
-      fields: Prisma.TutorAssignmentFieldRefs
+    LessonSchedule: {
+      payload: Prisma.$LessonSchedulePayload<ExtArgs>
+      fields: Prisma.LessonScheduleFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TutorAssignmentFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload> | null
+          args: Prisma.LessonScheduleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TutorAssignmentFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         findFirst: {
-          args: Prisma.TutorAssignmentFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload> | null
+          args: Prisma.LessonScheduleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TutorAssignmentFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         findMany: {
-          args: Prisma.TutorAssignmentFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>[]
+          args: Prisma.LessonScheduleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>[]
         }
         create: {
-          args: Prisma.TutorAssignmentCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         createMany: {
-          args: Prisma.TutorAssignmentCreateManyArgs<ExtArgs>
+          args: Prisma.LessonScheduleCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TutorAssignmentCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>[]
+          args: Prisma.LessonScheduleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>[]
         }
         delete: {
-          args: Prisma.TutorAssignmentDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         update: {
-          args: Prisma.TutorAssignmentUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         deleteMany: {
-          args: Prisma.TutorAssignmentDeleteManyArgs<ExtArgs>
+          args: Prisma.LessonScheduleDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TutorAssignmentUpdateManyArgs<ExtArgs>
+          args: Prisma.LessonScheduleUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TutorAssignmentUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>[]
+          args: Prisma.LessonScheduleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>[]
         }
         upsert: {
-          args: Prisma.TutorAssignmentUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TutorAssignmentPayload>
+          args: Prisma.LessonScheduleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LessonSchedulePayload>
         }
         aggregate: {
-          args: Prisma.TutorAssignmentAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTutorAssignment>
+          args: Prisma.LessonScheduleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLessonSchedule>
         }
         groupBy: {
-          args: Prisma.TutorAssignmentGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TutorAssignmentGroupByOutputType>[]
+          args: Prisma.LessonScheduleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LessonScheduleGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TutorAssignmentCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TutorAssignmentCountAggregateOutputType> | number
+          args: Prisma.LessonScheduleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LessonScheduleCountAggregateOutputType> | number
         }
       }
     }
@@ -1243,25 +1243,32 @@ export const PupilScalarFieldEnum = {
 export type PupilScalarFieldEnum = (typeof PupilScalarFieldEnum)[keyof typeof PupilScalarFieldEnum]
 
 
-export const TutorAssignmentScalarFieldEnum = {
+export const LessonScheduleScalarFieldEnum = {
+  id: 'id',
   tutorId: 'tutorId',
   pupilId: 'pupilId',
-  createdAt: 'createdAt'
+  subject: 'subject',
+  dayOfWeek: 'dayOfWeek',
+  startTime: 'startTime',
+  duration: 'duration',
+  venue: 'venue',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
-export type TutorAssignmentScalarFieldEnum = (typeof TutorAssignmentScalarFieldEnum)[keyof typeof TutorAssignmentScalarFieldEnum]
+export type LessonScheduleScalarFieldEnum = (typeof LessonScheduleScalarFieldEnum)[keyof typeof LessonScheduleScalarFieldEnum]
 
 
 export const LessonScalarFieldEnum = {
   id: 'id',
+  scheduleId: 'scheduleId',
   pupilId: 'pupilId',
   tutorId: 'tutorId',
   startTime: 'startTime',
   duration: 'duration',
   subject: 'subject',
-  venue: 'venue',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  venue: 'venue'
 } as const
 
 export type LessonScalarFieldEnum = (typeof LessonScalarFieldEnum)[keyof typeof LessonScalarFieldEnum]
@@ -1277,6 +1284,7 @@ export const ReportScalarFieldEnum = {
   emotionalRegulation: 'emotionalRegulation',
   emotionalRegulationExplanation: 'emotionalRegulationExplanation',
   lessonObjective: 'lessonObjective',
+  pupilActivity: 'pupilActivity',
   lessonOutcome: 'lessonOutcome',
   strategyImpact: 'strategyImpact',
   nextSessionTarget: 'nextSessionTarget',
@@ -1407,6 +1415,27 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DayOfWeek'
+ */
+export type EnumDayOfWeekFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DayOfWeek'>
+    
+
+
+/**
+ * Reference to a field of type 'DayOfWeek[]'
+ */
+export type ListEnumDayOfWeekFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DayOfWeek[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -1591,7 +1620,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   school?: Prisma.SchoolOmit
   pupil?: Prisma.PupilOmit
-  tutorAssignment?: Prisma.TutorAssignmentOmit
+  lessonSchedule?: Prisma.LessonScheduleOmit
   lesson?: Prisma.LessonOmit
   report?: Prisma.ReportOmit
   strategy?: Prisma.StrategyOmit

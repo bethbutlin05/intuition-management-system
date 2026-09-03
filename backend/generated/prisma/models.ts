@@ -11,7 +11,7 @@
 export type * from './models/User.js'
 export type * from './models/School.js'
 export type * from './models/Pupil.js'
-export type * from './models/TutorAssignment.js'
+export type * from './models/LessonSchedule.js'
 export type * from './models/Lesson.js'
 export type * from './models/Report.js'
 export type * from './models/Strategy.js'

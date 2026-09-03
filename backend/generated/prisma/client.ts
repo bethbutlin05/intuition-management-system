@@ -57,10 +57,10 @@ export type School = Prisma.SchoolModel
  */
 export type Pupil = Prisma.PupilModel
 /**
- * Model TutorAssignment
+ * Model LessonSchedule
  * 
  */
-export type TutorAssignment = Prisma.TutorAssignmentModel
+export type LessonSchedule = Prisma.LessonScheduleModel
 /**
  * Model Lesson
  * 

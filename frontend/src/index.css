@@ -4,95 +4,110 @@
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-bg: rgba(124, 58, 237, 0.08);
+  --accent-border: rgba(124, 58, 237, 0.3);
+
+  --surface: #ffffff;
+  --surface-soft: #f8f7fa;
+  --social-bg: rgba(244, 243, 246, 0.7);
+
+  --shadow:
+    rgba(0, 0, 0, 0.08) 0 4px 12px,
+    rgba(0, 0, 0, 0.04) 0 2px 4px;
+
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+
+  --heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* -------------------------
+   General page styles
+------------------------- */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--heading);
-  font-weight: 500;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  margin: 0 0 24px;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  margin: 0 0 16px;
 }
+
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
 p {
-  margin: 0;
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
 }
 
 code,
@@ -108,4 +123,647 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* -------------------------
+   Forms
+------------------------- */
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='time'],
+select,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+
+  border: 1px solid #cfcdd3;
+  border-radius: 8px;
+
+  background: var(--surface);
+  color: var(--text-h);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-border);
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 11px 18px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background: var(--accent);
+  color: white;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+/* -------------------------
+   Generic page layout
+------------------------- */
+
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px;
+  text-align: left;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  font-size: 19px;
+  color: var(--text);
+}
+
+/* -------------------------
+   Generic forms/cards
+------------------------- */
+
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+/* -------------------------
+   Lists
+------------------------- */
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.data-list-item {
+  padding: 16px 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--surface);
+}
+
+.data-list-item strong {
+  color: var(--text-h);
+}
+
+/* -------------------------
+   Regular lessons page
+------------------------- */
+
+.lesson-schedules-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+  text-align: left;
+}
+
+.lesson-schedules-page > p {
+  margin-bottom: 28px;
+  font-size: 19px;
+}
+
+.lesson-schedules-form {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.lesson-schedules-form h2 {
+  margin-bottom: 22px;
+}
+
+.lesson-schedules-form label {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 14px;
+}
+
+.lesson-schedules-form label > span {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.lesson-schedules-form button {
+  margin-top: 8px;
+}
+
+.lesson-schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lesson-schedule-list li {
+  padding: 18px 20px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  line-height: 1.5;
+}
+
+.lesson-schedule-list strong {
+  color: var(--text-h);
+}
+
+/* -------------------------
+   Timetable
+------------------------- */
+
+.timetable {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+
+  border: 1px solid var(--border);
+  margin-top: 30px;
+}
+
+.timetable-header {
+  padding: 15px;
+
+  font-weight: bold;
+  text-align: center;
+
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.time-column {
+  text-align: left;
+}
+
+.time-cell {
+  padding: 15px;
+
+  border: 1px solid var(--border);
+  font-weight: bold;
+}
+
+.timetable-cell {
+  min-height: 100px;
+  padding: 5px;
+
+  border: 1px solid var(--border);
+}
+
+.lesson-card {
+  padding: 10px;
+  margin-bottom: 5px;
+
+  border-radius: 6px;
+
+  font-size: 14px;
+
+  background: #e8f0fe;
+  color: #1f2937;
+}
+
+/* -------------------------
+   Report form
+------------------------- */
+
+.reports-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px;
+
+  text-align: left;
+}
+
+.reports-page > h1 {
+  margin-bottom: 28px;
+}
+
+.report-section,
+.reports-page section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 26px;
+  margin-bottom: 24px;
+}
+
+.report-section h2,
+.reports-page section h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.reports-page label {
+  color: var(--text-h);
+}
+
+.reports-page select,
+.reports-page textarea,
+.reports-page input[type='text'] {
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 12px;
+
+  border: 1px solid #cfcdd3;
+  border-radius: 8px;
+
+  background: var(--surface);
+  color: var(--text-h);
+}
+
+.reports-page textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Longer report inputs */
+
+.textarea-small {
+  min-height: 80px !important;
+}
+
+.textarea-medium {
+  min-height: 130px !important;
+}
+
+.textarea-large {
+  min-height: 190px !important;
+}
+
+/* -------------------------
+   Lesson summary
+------------------------- */
+
+.lesson-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px 30px;
+
+  padding: 20px;
+  margin-top: 20px;
+
+  background: var(--surface-soft);
+  border-radius: 10px;
+}
+
+.lesson-summary p {
+  margin: 0;
+}
+
+.lesson-summary strong {
+  color: var(--text-h);
+}
+
+/* -------------------------
+   Report scores
+------------------------- */
+
+.score-field {
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.score-field:last-child {
+  border-bottom: none;
+}
+
+.score-field h3 {
+  margin: 0 0 14px;
+}
+
+.score-field label {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+  margin-right: 28px;
+  margin-bottom: 8px;
+
+  font-weight: normal;
+
+  cursor: pointer;
+}
+
+.score-field input[type='radio'] {
+  width: 18px;
+  height: 18px;
+
+  cursor: pointer;
+}
+
+/* -------------------------
+   Report options
+------------------------- */
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.option-grid label {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 0;
+  padding: 14px 16px;
+
+  min-height: 56px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--surface);
+
+  font-weight: normal;
+
+  cursor: pointer;
+}
+
+.option-grid label:hover {
+  background: var(--surface-soft);
+}
+
+.option-grid input[type='checkbox'],
+.option-grid input[type='radio'] {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+/* -------------------------
+   Save report button
+------------------------- */
+
+.save-report-button,
+.reports-page > button {
+  display: inline-block;
+
+  margin: 4px 0 32px;
+
+  padding: 13px 24px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--accent);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.save-report-button:hover,
+.reports-page > button:hover {
+  background: var(--accent-hover);
+}
+
+/* -------------------------
+   Admin reports page
+------------------------- */
+
+.reports-header {
+  margin-bottom: 28px;
+}
+
+.reports-header h1 {
+  margin-bottom: 6px;
+}
+
+.reports-header p {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.report-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(160px, 1.2fr)
+    minmax(200px, 1.5fr)
+    minmax(280px, 2fr);
+
+  gap: 24px;
+
+  align-items: center;
+
+  padding: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--surface);
+}
+
+.report-card h3 {
+  margin: 0 0 6px;
+
+  color: var(--text-h);
+}
+
+.report-card p {
+  margin: 4px 0;
+}
+
+.report-scores {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.report-scores span {
+  padding: 8px 10px;
+
+  border-radius: 6px;
+
+  background: var(--surface-soft);
+}
+
+/* -------------------------
+   Messages
+------------------------- */
+
+.error-message,
+.success-message {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+
+  border-radius: 7px;
+
+  font-weight: 500;
+}
+
+.error-message {
+  background: #fdeaea;
+  border: 1px solid #e0a0a0;
+
+  color: #990000;
+}
+
+.success-message {
+  background: #edf7ed;
+  border: 1px solid #a6d5a6;
+
+  color: #1b5e20;
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  main {
+    padding: 24px;
+  }
+
+  .reports-page,
+  .lesson-schedules-page,
+  .page-container {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    padding: 16px;
+  }
+
+  .reports-page,
+  .lesson-schedules-page,
+  .page-container {
+    padding: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .report-scores {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-schedules-form label {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .timetable {
+    overflow-x: auto;
+  }
 }

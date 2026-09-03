@@ -54,6 +54,7 @@ export type ReportMinAggregateOutputType = {
   emotionalRegulation: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation: string | null
   lessonObjective: string | null
+  pupilActivity: string | null
   lessonOutcome: string | null
   strategyImpact: string | null
   nextSessionTarget: string | null
@@ -72,6 +73,7 @@ export type ReportMaxAggregateOutputType = {
   emotionalRegulation: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation: string | null
   lessonObjective: string | null
+  pupilActivity: string | null
   lessonOutcome: string | null
   strategyImpact: string | null
   nextSessionTarget: string | null
@@ -90,6 +92,7 @@ export type ReportCountAggregateOutputType = {
   emotionalRegulation: number
   emotionalRegulationExplanation: number
   lessonObjective: number
+  pupilActivity: number
   lessonOutcome: number
   strategyImpact: number
   nextSessionTarget: number
@@ -128,6 +131,7 @@ export type ReportMinAggregateInputType = {
   emotionalRegulation?: true
   emotionalRegulationExplanation?: true
   lessonObjective?: true
+  pupilActivity?: true
   lessonOutcome?: true
   strategyImpact?: true
   nextSessionTarget?: true
@@ -146,6 +150,7 @@ export type ReportMaxAggregateInputType = {
   emotionalRegulation?: true
   emotionalRegulationExplanation?: true
   lessonObjective?: true
+  pupilActivity?: true
   lessonOutcome?: true
   strategyImpact?: true
   nextSessionTarget?: true
@@ -164,6 +169,7 @@ export type ReportCountAggregateInputType = {
   emotionalRegulation?: true
   emotionalRegulationExplanation?: true
   lessonObjective?: true
+  pupilActivity?: true
   lessonOutcome?: true
   strategyImpact?: true
   nextSessionTarget?: true
@@ -269,6 +275,7 @@ export type ReportGroupByOutputType = {
   emotionalRegulation: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation: string | null
   lessonObjective: string | null
+  pupilActivity: string | null
   lessonOutcome: string | null
   strategyImpact: string | null
   nextSessionTarget: string | null
@@ -310,6 +317,7 @@ export type ReportWhereInput = {
   emotionalRegulation?: Prisma.EnumEmotionalRegulationNullableFilter<"Report"> | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.StringNullableFilter<"Report"> | string | null
   lessonObjective?: Prisma.StringNullableFilter<"Report"> | string | null
+  pupilActivity?: Prisma.StringNullableFilter<"Report"> | string | null
   lessonOutcome?: Prisma.StringNullableFilter<"Report"> | string | null
   strategyImpact?: Prisma.StringNullableFilter<"Report"> | string | null
   nextSessionTarget?: Prisma.StringNullableFilter<"Report"> | string | null
@@ -331,6 +339,7 @@ export type ReportOrderByWithRelationInput = {
   emotionalRegulation?: Prisma.SortOrderInput | Prisma.SortOrder
   emotionalRegulationExplanation?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonObjective?: Prisma.SortOrderInput | Prisma.SortOrder
+  pupilActivity?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonOutcome?: Prisma.SortOrderInput | Prisma.SortOrder
   strategyImpact?: Prisma.SortOrderInput | Prisma.SortOrder
   nextSessionTarget?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -355,6 +364,7 @@ export type ReportWhereUniqueInput = Prisma.AtLeast<{
   emotionalRegulation?: Prisma.EnumEmotionalRegulationNullableFilter<"Report"> | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.StringNullableFilter<"Report"> | string | null
   lessonObjective?: Prisma.StringNullableFilter<"Report"> | string | null
+  pupilActivity?: Prisma.StringNullableFilter<"Report"> | string | null
   lessonOutcome?: Prisma.StringNullableFilter<"Report"> | string | null
   strategyImpact?: Prisma.StringNullableFilter<"Report"> | string | null
   nextSessionTarget?: Prisma.StringNullableFilter<"Report"> | string | null
@@ -376,6 +386,7 @@ export type ReportOrderByWithAggregationInput = {
   emotionalRegulation?: Prisma.SortOrderInput | Prisma.SortOrder
   emotionalRegulationExplanation?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonObjective?: Prisma.SortOrderInput | Prisma.SortOrder
+  pupilActivity?: Prisma.SortOrderInput | Prisma.SortOrder
   lessonOutcome?: Prisma.SortOrderInput | Prisma.SortOrder
   strategyImpact?: Prisma.SortOrderInput | Prisma.SortOrder
   nextSessionTarget?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -402,6 +413,7 @@ export type ReportScalarWhereWithAggregatesInput = {
   emotionalRegulation?: Prisma.EnumEmotionalRegulationNullableWithAggregatesFilter<"Report"> | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
   lessonObjective?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
+  pupilActivity?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
   lessonOutcome?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
   strategyImpact?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
   nextSessionTarget?: Prisma.StringNullableWithAggregatesFilter<"Report"> | string | null
@@ -418,6 +430,7 @@ export type ReportCreateInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -439,6 +452,7 @@ export type ReportUncheckedCreateInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -457,6 +471,7 @@ export type ReportUpdateInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -478,6 +493,7 @@ export type ReportUncheckedUpdateInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -498,6 +514,7 @@ export type ReportCreateManyInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -514,6 +531,7 @@ export type ReportUpdateManyMutationInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -532,6 +550,7 @@ export type ReportUncheckedUpdateManyInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -555,6 +574,7 @@ export type ReportCountOrderByAggregateInput = {
   emotionalRegulation?: Prisma.SortOrder
   emotionalRegulationExplanation?: Prisma.SortOrder
   lessonObjective?: Prisma.SortOrder
+  pupilActivity?: Prisma.SortOrder
   lessonOutcome?: Prisma.SortOrder
   strategyImpact?: Prisma.SortOrder
   nextSessionTarget?: Prisma.SortOrder
@@ -582,6 +602,7 @@ export type ReportMaxOrderByAggregateInput = {
   emotionalRegulation?: Prisma.SortOrder
   emotionalRegulationExplanation?: Prisma.SortOrder
   lessonObjective?: Prisma.SortOrder
+  pupilActivity?: Prisma.SortOrder
   lessonOutcome?: Prisma.SortOrder
   strategyImpact?: Prisma.SortOrder
   nextSessionTarget?: Prisma.SortOrder
@@ -600,6 +621,7 @@ export type ReportMinOrderByAggregateInput = {
   emotionalRegulation?: Prisma.SortOrder
   emotionalRegulationExplanation?: Prisma.SortOrder
   lessonObjective?: Prisma.SortOrder
+  pupilActivity?: Prisma.SortOrder
   lessonOutcome?: Prisma.SortOrder
   strategyImpact?: Prisma.SortOrder
   nextSessionTarget?: Prisma.SortOrder
@@ -694,6 +716,7 @@ export type ReportCreateWithoutLessonInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -713,6 +736,7 @@ export type ReportUncheckedCreateWithoutLessonInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -747,6 +771,7 @@ export type ReportUpdateWithoutLessonInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -766,6 +791,7 @@ export type ReportUncheckedUpdateWithoutLessonInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -784,6 +810,7 @@ export type ReportCreateWithoutReportStrategiesInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -804,6 +831,7 @@ export type ReportUncheckedCreateWithoutReportStrategiesInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -837,6 +865,7 @@ export type ReportUpdateWithoutReportStrategiesInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -857,6 +886,7 @@ export type ReportUncheckedUpdateWithoutReportStrategiesInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -874,6 +904,7 @@ export type ReportCreateWithoutReportEvidenceInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -894,6 +925,7 @@ export type ReportUncheckedCreateWithoutReportEvidenceInput = {
   emotionalRegulation?: $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: string | null
   lessonObjective?: string | null
+  pupilActivity?: string | null
   lessonOutcome?: string | null
   strategyImpact?: string | null
   nextSessionTarget?: string | null
@@ -927,6 +959,7 @@ export type ReportUpdateWithoutReportEvidenceInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -947,6 +980,7 @@ export type ReportUncheckedUpdateWithoutReportEvidenceInput = {
   emotionalRegulation?: Prisma.NullableEnumEmotionalRegulationFieldUpdateOperationsInput | $Enums.EmotionalRegulation | null
   emotionalRegulationExplanation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonObjective?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pupilActivity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lessonOutcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategyImpact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nextSessionTarget?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1006,6 +1040,7 @@ export type ReportSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   emotionalRegulation?: boolean
   emotionalRegulationExplanation?: boolean
   lessonObjective?: boolean
+  pupilActivity?: boolean
   lessonOutcome?: boolean
   strategyImpact?: boolean
   nextSessionTarget?: boolean
@@ -1028,6 +1063,7 @@ export type ReportSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   emotionalRegulation?: boolean
   emotionalRegulationExplanation?: boolean
   lessonObjective?: boolean
+  pupilActivity?: boolean
   lessonOutcome?: boolean
   strategyImpact?: boolean
   nextSessionTarget?: boolean
@@ -1047,6 +1083,7 @@ export type ReportSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   emotionalRegulation?: boolean
   emotionalRegulationExplanation?: boolean
   lessonObjective?: boolean
+  pupilActivity?: boolean
   lessonOutcome?: boolean
   strategyImpact?: boolean
   nextSessionTarget?: boolean
@@ -1066,6 +1103,7 @@ export type ReportSelectScalar = {
   emotionalRegulation?: boolean
   emotionalRegulationExplanation?: boolean
   lessonObjective?: boolean
+  pupilActivity?: boolean
   lessonOutcome?: boolean
   strategyImpact?: boolean
   nextSessionTarget?: boolean
@@ -1074,7 +1112,7 @@ export type ReportSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ReportOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "lessonId" | "engagementScore" | "attentionScore" | "confidenceScore" | "academicProgressScore" | "emotionalRegulation" | "emotionalRegulationExplanation" | "lessonObjective" | "lessonOutcome" | "strategyImpact" | "nextSessionTarget" | "tutorReflection" | "createdAt" | "updatedAt", ExtArgs["result"]["report"]>
+export type ReportOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "lessonId" | "engagementScore" | "attentionScore" | "confidenceScore" | "academicProgressScore" | "emotionalRegulation" | "emotionalRegulationExplanation" | "lessonObjective" | "pupilActivity" | "lessonOutcome" | "strategyImpact" | "nextSessionTarget" | "tutorReflection" | "createdAt" | "updatedAt", ExtArgs["result"]["report"]>
 export type ReportInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lesson?: boolean | Prisma.LessonDefaultArgs<ExtArgs>
   reportStrategies?: boolean | Prisma.Report$reportStrategiesArgs<ExtArgs>
@@ -1105,6 +1143,7 @@ export type $ReportPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     emotionalRegulation: $Enums.EmotionalRegulation | null
     emotionalRegulationExplanation: string | null
     lessonObjective: string | null
+    pupilActivity: string | null
     lessonOutcome: string | null
     strategyImpact: string | null
     nextSessionTarget: string | null
@@ -1546,6 +1585,7 @@ export interface ReportFieldRefs {
   readonly emotionalRegulation: Prisma.FieldRef<"Report", 'EmotionalRegulation'>
   readonly emotionalRegulationExplanation: Prisma.FieldRef<"Report", 'String'>
   readonly lessonObjective: Prisma.FieldRef<"Report", 'String'>
+  readonly pupilActivity: Prisma.FieldRef<"Report", 'String'>
   readonly lessonOutcome: Prisma.FieldRef<"Report", 'String'>
   readonly strategyImpact: Prisma.FieldRef<"Report", 'String'>
   readonly nextSessionTarget: Prisma.FieldRef<"Report", 'String'>

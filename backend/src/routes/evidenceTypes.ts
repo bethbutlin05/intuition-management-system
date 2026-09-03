@@ -49,4 +49,39 @@ router.post('/', async (req, res) => {
   }
 })
 
+// DELETE an evidence type
+router.delete('/:id', async (req, res) => {
+  try {
+    const evidenceTypeId = Number(req.params.id)
+
+    if (Number.isNaN(evidenceTypeId)) {
+      return res.status(400).json({
+        error: 'Invalid evidence type ID',
+      })
+    }
+
+    await prisma.$transaction([
+      prisma.reportEvidence.deleteMany({
+        where: {
+          evidenceTypeId,
+        },
+      }),
+
+      prisma.evidenceType.delete({
+        where: {
+          id: evidenceTypeId,
+        },
+      }),
+    ])
+
+    res.status(204).send()
+  } catch (error) {
+    console.error(error)
+
+    res.status(500).json({
+      error: 'Failed to delete evidence type',
+    })
+  }
+})
+
 export default router
