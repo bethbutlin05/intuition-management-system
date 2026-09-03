@@ -39,23 +39,6 @@ type EvidenceType = {
   name: string
 }
 
-type ReportSummary = {
-  id: number
-  createdAt: string
-  engagementScore: number
-  attentionScore: number
-  confidenceScore: number
-  academicProgressScore: number
-
-  lesson: {
-    id: number
-    subject: string
-    startTime: string
-    tutor: Tutor
-    pupil: Pupil
-  }
-}
-
 const emotionalRegulationOptions = [
   'CALM',
   'HAPPY',
